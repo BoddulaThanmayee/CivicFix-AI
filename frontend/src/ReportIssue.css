@@ -1,0 +1,352 @@
+/* ================================
+   REPORT ISSUE PAGE
+================================ */
+
+.report-page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  color: #173b32;
+  font-family: Arial, sans-serif;
+}
+
+.report-page h1 {
+  color: #173b32 !important;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 20px;
+}
+
+.report-page .subtitle {
+  color: #345b50 !important;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 35px;
+}
+
+
+/* ================================
+   COMMON CARDS
+================================ */
+
+.report-page .location-card,
+.report-page .camera-card,
+.report-page .upload-card,
+.report-page .preview-card,
+.report-page .result-card,
+.report-page .complaint-card,
+.report-page .success-card {
+  width: 100%;
+  background: #ffffff !important;
+  border: 1px solid #dce8e3;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(23, 59, 50, 0.08);
+}
+
+
+/* ================================
+   HEADINGS
+================================ */
+
+.report-page h2 {
+  color: #173b32 !important;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.report-page p {
+  color: #345b50 !important;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   LOCATION
+================================ */
+
+.report-page .section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.report-page .location-details {
+  background: #f3f8f5 !important;
+  border: 1px solid #dce8e3;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 20px 0;
+}
+
+.report-page .location-details p {
+  margin: 8px 0;
+  color: #345b50 !important;
+}
+
+.report-page .location-details strong {
+  color: #173b32 !important;
+}
+
+.report-page .location-map {
+  width: 100%;
+  height: 350px;
+  border-radius: 12px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+
+/* ================================
+   CAMERA
+================================ */
+
+.report-page .camera-preview {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  background: #111111;
+  border-radius: 12px;
+  display: block;
+  margin: 15px 0;
+}
+
+.report-page .camera-actions,
+.report-page .preview-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+/* ================================
+   IMAGE UPLOAD
+================================ */
+
+.report-page input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cddbd5;
+  border-radius: 8px;
+  background: #f8fbf9;
+  color: #345b50;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+
+/* ================================
+   IMAGE PREVIEW
+================================ */
+
+.report-page .selected-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 15px 0;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
+.report-page button {
+  font-family: Arial, sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.report-page .primary-btn {
+  background: #173b32 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.report-page .primary-btn:hover {
+  background: #245c4d !important;
+}
+
+.report-page .secondary-btn {
+  background: #e8f0ec !important;
+  color: #173b32 !important;
+  border: 1px solid #cddbd5 !important;
+}
+
+.report-page .secondary-btn:hover {
+  background: #dce8e3 !important;
+}
+
+.report-page .location-btn {
+  background: #287c68 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.report-page .location-btn:hover {
+  background: #1f6655 !important;
+}
+
+.report-page .submit-btn {
+  width: 100%;
+  background: #287c68 !important;
+  color: #ffffff !important;
+  border: none !important;
+  margin-top: 20px;
+}
+
+.report-page .submit-btn:hover {
+  background: #1f6655 !important;
+}
+
+.report-page button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* ================================
+   AI RESULT
+================================ */
+
+.report-page .result-card {
+  border-left: 5px solid #287c68;
+  background: #ffffff !important;
+}
+
+.report-page .result-card p {
+  margin: 10px 0;
+}
+
+.report-page .result-card strong {
+  color: #173b32 !important;
+}
+
+
+/* ================================
+   COMPLAINT VERIFICATION
+================================ */
+
+.report-page .complaint-card {
+  border-left: 5px solid #d99b32;
+}
+
+.report-page .verification-box {
+  background: #fffaf0 !important;
+  border: 1px solid #ead7a5;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 15px;
+}
+
+.report-page .verification-box p {
+  margin: 10px 0;
+}
+
+.report-page .verification-box strong {
+  color: #173b32 !important;
+}
+
+
+/* ================================
+   SUCCESS MESSAGE
+================================ */
+
+.report-page .success-card {
+  border-left: 5px solid #287c68;
+  text-align: center;
+  background: #f5fbf7 !important;
+}
+
+.report-page .success-card h2 {
+  color: #287c68 !important;
+}
+
+.report-page .complaint-id {
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #173b32 !important;
+  background: #e8f0ec !important;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin: 15px auto;
+}
+
+
+/* ================================
+   MESSAGES
+================================ */
+
+.report-page .message-box {
+  background: #fff8e8 !important;
+  color: #8a5a00 !important;
+  border: 1px solid #edcf8c;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.report-page .error-message {
+  color: #c0392b !important;
+  font-weight: 600;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 768px) {
+
+  .report-page {
+    padding: 25px 15px;
+  }
+
+  .report-page h1 {
+    font-size: 34px;
+  }
+
+  .report-page .subtitle {
+    font-size: 16px;
+  }
+
+  .report-page .section-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .report-page .location-btn {
+    width: 100%;
+  }
+
+  .report-page .camera-actions,
+  .report-page .preview-actions {
+    flex-direction: column;
+  }
+
+  .report-page .primary-btn,
+  .report-page .secondary-btn,
+  .report-page .submit-btn {
+    width: 100%;
+  }
+
+  .report-page .location-map {
+    height: 280px;
+  }
+}
