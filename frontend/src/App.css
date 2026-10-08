@@ -300,3 +300,457 @@ h1 span {
     justify-content: center;
   }
 }
+/* ================================
+   NAVBAR ACTIONS
+================================ */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-nav-button {
+  border: none;
+  padding: 9px 15px;
+  border-radius: 9px;
+
+  background: #eef2ff;
+  color: #4338ca;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-nav-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 700px) {
+  .navbar-actions {
+    gap: 8px;
+  }
+
+  .admin-nav-button {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .location {
+    display: none;
+  }
+}
+
+/* =========================================================
+   CIVICFIX AI - AUTHENTICATION UI
+   Add this CSS to the bottom of frontend/src/App.css
+   ========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(46, 196, 182, 0.20), transparent 32%),
+    radial-gradient(circle at 90% 85%, rgba(34, 139, 230, 0.16), transparent 30%),
+    linear-gradient(135deg, #eefaf7 0%, #f6fbff 48%, #edf6ff 100%);
+  position: relative;
+  overflow: hidden;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.auth-page::before,
+.auth-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.auth-page::before {
+  width: 340px;
+  height: 340px;
+  background: rgba(27, 170, 155, 0.10);
+  top: -150px;
+  left: -120px;
+}
+
+.auth-page::after {
+  width: 300px;
+  height: 300px;
+  background: rgba(50, 120, 220, 0.09);
+  right: -110px;
+  bottom: -120px;
+}
+
+.auth-card {
+  width: min(940px, 100%);
+  min-height: 590px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.80);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 30px 70px rgba(22, 62, 75, 0.14),
+    0 8px 24px rgba(22, 62, 75, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* Left branding panel */
+.auth-card::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.24), transparent 28%),
+    radial-gradient(circle at 85% 75%, rgba(255,255,255,0.14), transparent 30%),
+    linear-gradient(145deg, #0d4f4a 0%, #116d65 48%, #159183 100%);
+  border-radius: 28px 0 0 28px;
+}
+
+.auth-logo,
+.auth-heading,
+.auth-form,
+.auth-switch {
+  grid-column: 2;
+}
+
+.auth-logo {
+  margin: 54px 58px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #123b38;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.auth-logo::before {
+  content: "CIVIC";
+  position: absolute;
+  left: 54px;
+  top: 76px;
+  width: 300px;
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.auth-logo-icon {
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 13px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #159f91, #0b665f);
+  box-shadow: 0 8px 18px rgba(12, 111, 102, 0.25);
+  font-size: 22px;
+  font-weight: 900;
+}
+
+/* Decorative branding content through the left panel */
+.auth-card::after {
+  content: "Report civic issues.\A Let AI identify them.\A Help build better communities.";
+  white-space: pre-line;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  width: 310px;
+  margin-left: 52px;
+  margin-top: 30px;
+  color: #ffffff;
+  font-size: 31px;
+  line-height: 1.16;
+  font-weight: 800;
+  letter-spacing: -1px;
+  z-index: 2;
+}
+
+/* Keep the actual logo over the decorative panel */
+.auth-card .auth-logo {
+  position: relative;
+}
+
+.auth-heading {
+  margin: 45px 58px 0;
+}
+
+.auth-tagline {
+  margin: 0 0 13px;
+  color: #159183;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.auth-heading h1 {
+  margin: 0;
+  color: #153d3a;
+  font-size: clamp(34px, 4vw, 47px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+  font-weight: 800;
+}
+
+.auth-heading > p:last-child {
+  margin: 13px 0 0;
+  color: #66807d;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.auth-form {
+  margin: 30px 58px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #294e4a;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  height: 49px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  border: 1px solid #d8e5e2;
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.88);
+  color: #193b38;
+  font-family: inherit;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.auth-form input::placeholder {
+  color: #9aaead;
+}
+
+.auth-form input:hover {
+  border-color: #b7d3ce;
+}
+
+.auth-form input:focus {
+  border-color: #159183;
+  box-shadow: 0 0 0 4px rgba(21, 145, 131, 0.11);
+  background: #ffffff;
+}
+
+.auth-submit-button {
+  width: 100%;
+  min-height: 51px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 13px;
+  cursor: pointer;
+  color: #ffffff;
+  background: linear-gradient(135deg, #117d72, #159f91);
+  box-shadow: 0 10px 22px rgba(17, 125, 114, 0.22);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(17, 125, 114, 0.28);
+}
+
+.auth-submit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.auth-error,
+.auth-message {
+  padding: 11px 13px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.auth-error {
+  color: #9b3333;
+  background: #fff0f0;
+  border: 1px solid #ffd4d4;
+}
+
+.auth-message {
+  color: #126d5f;
+  background: #ebfaf6;
+  border: 1px solid #c9eee6;
+}
+
+.auth-switch {
+  margin: 19px 58px 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #708582;
+  font-size: 13px;
+}
+
+.auth-switch button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #117d72;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.auth-switch button:hover {
+  text-decoration: underline;
+}
+
+.auth-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eefaf7, #edf6ff);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.auth-loading-card {
+  text-align: center;
+  padding: 40px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 20px 50px rgba(22,62,75,0.12);
+}
+
+.auth-loading-card .auth-logo-icon {
+  margin: 0 auto 15px;
+}
+
+.auth-loading-card h2 {
+  margin: 0;
+  color: #153d3a;
+}
+
+.auth-loading-card p {
+  color: #718683;
+}
+
+/* Existing Home page additions */
+.welcome-user {
+  color: #244d49;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.logout-button {
+  border: 1px solid #d6e5e1;
+  border-radius: 9px;
+  padding: 9px 14px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #25534f;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.logout-button:hover {
+  border-color: #159183;
+  color: #117d72;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+  .auth-page {
+    padding: 18px;
+    align-items: flex-start;
+  }
+
+  .auth-card {
+    display: block;
+    min-height: auto;
+    margin: 12px 0;
+    border-radius: 22px;
+  }
+
+  .auth-card::before {
+    display: none;
+  }
+
+  .auth-card::after {
+    display: none;
+  }
+
+  .auth-logo {
+    margin: 30px 28px 0;
+  }
+
+  .auth-logo::before {
+    display: none;
+  }
+
+  .auth-heading {
+    margin: 32px 28px 0;
+  }
+
+  .auth-form {
+    margin: 25px 28px 0;
+  }
+
+  .auth-switch {
+    margin: 18px 28px 30px;
+  }
+}
+
+@media (max-width: 430px) {
+  .auth-heading h1 {
+    font-size: 34px;
+  }
+
+  .auth-logo {
+    font-size: 20px;
+  }
+
+  .auth-form input {
+    height: 47px;
+  }
+}

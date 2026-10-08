@@ -46,3 +46,27 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+# CivicFix AI - Local Database
+backend/civicfix.db
+*.db
+
+# CivicFix AI - Datasets
+CivicFix_Dataset/
+Data_sets/
+train/
+valid/
+test/
+test_images/
+
+# Dataset files
+README.dataset.txt
+README.roboflow.txt
+data.yaml
+
+# YOLO training outputs
+runs/
+yolov5_custom2/
+yolov8_custom2/
+
+# Local dataset preparation
+prepare_dataset.py
