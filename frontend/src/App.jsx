@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import "./App.css";
 
 import ReportIssue from "./ReportIssue";
@@ -7,7 +7,7 @@ import UserDashboard from "./UserDashboard";
 import Notifications from "./Notifications";
 import OfficerDashboard from "./OfficerDashboard";
 
-const API_BASE_URL = "http://10.0.2.2:8000";
+const API_BASE_URL = "http://127.0.0.1:8000";
 const USER_STORAGE_KEY = "civicfix_user";
 
 // =========================================================

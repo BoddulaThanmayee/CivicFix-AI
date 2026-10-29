@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./UserDashboard.css";
 import "./UserDashboard_chat.css";
-const API_BASE_URL = "http://10.0.2.2:8000";
+const API_BASE_URL = "http://127.0.0.1:8000";
 
 function UserDashboard({ user, onBack }) {
 
