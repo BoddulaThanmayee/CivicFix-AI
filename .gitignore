@@ -69,4 +69,7 @@ yolov5_custom2/
 yolov8_custom2/
 
 # Local dataset preparation
-prepare_dataset.py
+prepare_dataset.py/frontend/src_backup_before_bulk_emoji_fix/
+/frontend/src_backup_before_emoji_fix/
+/frontend/src_backup_before_final_emoji_fix/
+/frontend/src_backup_mojibake_repair/
