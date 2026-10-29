@@ -27,11 +27,7 @@
   margin-bottom: 35px;
 }
 
-
-/* ================================
-   COMMON CARDS
-================================ */
-
+/* COMMON CARDS */
 .report-page .location-card,
 .report-page .camera-card,
 .report-page .upload-card,
@@ -49,11 +45,7 @@
   box-shadow: 0 5px 20px rgba(23, 59, 50, 0.08);
 }
 
-
-/* ================================
-   HEADINGS
-================================ */
-
+/* HEADINGS */
 .report-page h2 {
   color: #173b32 !important;
   font-size: 24px;
@@ -67,11 +59,7 @@
   line-height: 1.6;
 }
 
-
-/* ================================
-   LOCATION
-================================ */
-
+/* LOCATION */
 .report-page .section-title-row {
   display: flex;
   justify-content: space-between;
@@ -105,11 +93,7 @@
   overflow: hidden;
 }
 
-
-/* ================================
-   CAMERA
-================================ */
-
+/* CAMERA */
 .report-page .camera-preview {
   width: 100%;
   max-height: 450px;
@@ -127,11 +111,7 @@
   flex-wrap: wrap;
 }
 
-
-/* ================================
-   IMAGE UPLOAD
-================================ */
-
+/* IMAGE UPLOAD */
 .report-page input[type="file"] {
   width: 100%;
   padding: 12px;
@@ -143,11 +123,7 @@
   cursor: pointer;
 }
 
-
-/* ================================
-   IMAGE PREVIEW
-================================ */
-
+/* IMAGE PREVIEW */
 .report-page .selected-image {
   width: 100%;
   max-height: 450px;
@@ -157,11 +133,7 @@
   margin: 15px 0;
 }
 
-
-/* ================================
-   BUTTONS
-================================ */
-
+/* BUTTONS */
 .report-page button {
   font-family: Arial, sans-serif !important;
   font-size: 15px !important;
@@ -219,11 +191,7 @@
   cursor: not-allowed;
 }
 
-
-/* ================================
-   AI RESULT
-================================ */
-
+/* AI RESULT */
 .report-page .result-card {
   border-left: 5px solid #287c68;
   background: #ffffff !important;
@@ -237,11 +205,7 @@
   color: #173b32 !important;
 }
 
-
-/* ================================
-   COMPLAINT VERIFICATION
-================================ */
-
+/* COMPLAINT VERIFICATION */
 .report-page .complaint-card {
   border-left: 5px solid #d99b32;
 }
@@ -262,11 +226,7 @@
   color: #173b32 !important;
 }
 
-
-/* ================================
-   SUCCESS MESSAGE
-================================ */
-
+/* SUCCESS MESSAGE */
 .report-page .success-card {
   border-left: 5px solid #287c68;
   text-align: center;
@@ -288,11 +248,7 @@
   margin: 15px auto;
 }
 
-
-/* ================================
-   MESSAGES
-================================ */
-
+/* MESSAGES */
 .report-page .message-box {
   background: #fff8e8 !important;
   color: #8a5a00 !important;
@@ -307,13 +263,8 @@
   font-weight: 600;
 }
 
-
-/* ================================
-   MOBILE
-================================ */
-
+/* MOBILE */
 @media (max-width: 768px) {
-
   .report-page {
     padding: 25px 15px;
   }
@@ -349,4 +300,288 @@
   .report-page .location-map {
     height: 280px;
   }
+}
+
+/* INTERACTIVE MAP */
+.report-page .map-section {
+  width: 100%;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.report-page .map-view-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.report-page .map-view-controls h3 {
+  margin: 0 0 6px;
+  color: #173b32;
+  font-size: 20px;
+}
+
+.report-page .map-view-controls p {
+  margin: 0;
+  color: #345b50;
+  font-size: 14px;
+}
+
+.report-page .map-view-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.report-page .map-view-button {
+  background: #ffffff !important;
+  color: #173b32 !important;
+  border: 1px solid #cddbd5 !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+
+.report-page .map-view-button.active {
+  background: #173b32 !important;
+  color: #ffffff !important;
+  border-color: #173b32 !important;
+}
+
+.report-page .map-view-button:hover {
+  opacity: 0.88;
+}
+
+.report-page .map-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #dce8e3;
+  border-radius: 14px;
+  background: #e8f0ec;
+  box-shadow: 0 5px 20px rgba(23, 59, 50, 0.08);
+}
+
+.report-page .map-container .leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.report-page .map-help-text {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #345b50;
+}
+
+@media (max-width: 768px) {
+  .report-page .map-view-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .report-page .map-view-buttons {
+    width: 100%;
+  }
+
+  .report-page .map-view-button {
+    flex: 1;
+  }
+
+  .report-page .map-container {
+    height: 350px;
+  }
+}
+
+/* =========================================================
+   DARK MODE OVERRIDES
+   App.jsx sets the active theme on html[data-theme].
+   These selectors intentionally override hard-coded light colors.
+========================================================= */
+html[data-theme="dark"] .report-page {
+  color: #edf7f1 !important;
+}
+
+html[data-theme="dark"] .report-page h1,
+html[data-theme="dark"] .report-page h2,
+html[data-theme="dark"] .report-page h3,
+html[data-theme="dark"] .report-page h4,
+html[data-theme="dark"] .report-page .map-view-controls h3,
+html[data-theme="dark"] .report-page .report-title h1 {
+  color: #edf7f1 !important;
+}
+
+html[data-theme="dark"] .report-page p,
+html[data-theme="dark"] .report-page .subtitle,
+html[data-theme="dark"] .report-page .report-title > p,
+html[data-theme="dark"] .report-page .map-view-controls p,
+html[data-theme="dark"] .report-page .map-help-text,
+html[data-theme="dark"] .report-page .report-label,
+html[data-theme="dark"] .report-page .report-user {
+  color: #b9ccc2 !important;
+}
+
+html[data-theme="dark"] .report-page .location-section,
+html[data-theme="dark"] .report-page .upload-area,
+html[data-theme="dark"] .report-page .camera-area,
+html[data-theme="dark"] .report-page .preview-area,
+html[data-theme="dark"] .report-page .analysis-result,
+html[data-theme="dark"] .report-page .complaint-report,
+html[data-theme="dark"] .report-page .complaint-success,
+html[data-theme="dark"] .report-page .analysis-loading,
+html[data-theme="dark"] .report-page .no-detection,
+html[data-theme="dark"] .report-page .location-details,
+html[data-theme="dark"] .report-page .location-card,
+html[data-theme="dark"] .report-page .camera-card,
+html[data-theme="dark"] .report-page .upload-card,
+html[data-theme="dark"] .report-page .preview-card,
+html[data-theme="dark"] .report-page .complaint-card,
+html[data-theme="dark"] .report-page .success-card {
+  background: #192720 !important;
+  color: #edf7f1 !important;
+  border-color: #354a3f !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+}
+
+html[data-theme="dark"] .report-page .location-details p,
+html[data-theme="dark"] .report-page .location-details strong,
+html[data-theme="dark"] .report-page .complaint-report p,
+html[data-theme="dark"] .report-page .complaint-report strong,
+html[data-theme="dark"] .report-page .result-card strong,
+html[data-theme="dark"] .report-page .verification-box strong,
+html[data-theme="dark"] .report-page .result-label,
+html[data-theme="dark"] .report-page .issue-summary strong,
+html[data-theme="dark"] .report-page .complaint-id {
+  color: #edf7f1 !important;
+}
+
+html[data-theme="dark"] .report-page .result-card {
+  background: #24372e !important;
+  border-color: #3d6554 !important;
+}
+
+html[data-theme="dark"] .report-page .verification-box {
+  background: #332d1d !important;
+  border-color: #806b3c !important;
+}
+
+html[data-theme="dark"] .report-page .verification-box p {
+  color: #f0dfb3 !important;
+}
+
+html[data-theme="dark"] .report-page .complaint-success {
+  background: #18372a !important;
+  border-color: #357c58 !important;
+}
+
+html[data-theme="dark"] .report-page .complaint-success h3,
+html[data-theme="dark"] .report-page .complaint-success p {
+  color: #e2f8e9 !important;
+}
+
+html[data-theme="dark"] .report-page .complaint-id {
+  background: #294638 !important;
+}
+
+html[data-theme="dark"] .report-page .map-view-controls h3 {
+  color: #edf7f1 !important;
+}
+
+html[data-theme="dark"] .report-page .map-view-controls p,
+html[data-theme="dark"] .report-page .map-help-text {
+  color: #b9ccc2 !important;
+}
+
+html[data-theme="dark"] .report-page .map-view-button {
+  background: #26372f !important;
+  color: #edf7f1 !important;
+  border-color: #496254 !important;
+}
+
+html[data-theme="dark"] .report-page .map-view-button.active {
+  background: #087f68 !important;
+  color: #ffffff !important;
+  border-color: #31b89a !important;
+}
+
+html[data-theme="dark"] .report-page input[type="file"] {
+  background: #222f28 !important;
+  color: #edf7f1 !important;
+  border-color: #496254 !important;
+}
+
+html[data-theme="dark"] .report-page input[type="file"]::file-selector-button {
+  background: #30473b;
+  color: #ffffff;
+  border: 1px solid #496254;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-right: 10px;
+}
+
+html[data-theme="dark"] .report-page .secondary-btn,
+html[data-theme="dark"] .report-page .back-button,
+html[data-theme="dark"] .report-page .remove-button {
+  background: #2a3a32 !important;
+  color: #edf7f1 !important;
+  border: 1px solid #496254 !important;
+}
+
+html[data-theme="dark"] .report-page .primary-btn,
+html[data-theme="dark"] .report-page .camera-button,
+html[data-theme="dark"] .report-page .capture-button,
+html[data-theme="dark"] .report-page .submit-complaint-button,
+html[data-theme="dark"] .report-page .location-button {
+  background: #087f68 !important;
+  color: #ffffff !important;
+  border: 1px solid #20a889 !important;
+}
+
+html[data-theme="dark"] .report-page .primary-btn:hover,
+html[data-theme="dark"] .report-page .camera-button:hover,
+html[data-theme="dark"] .report-page .capture-button:hover,
+html[data-theme="dark"] .report-page .submit-complaint-button:hover,
+html[data-theme="dark"] .report-page .location-button:hover {
+  background: #096b58 !important;
+}
+
+html[data-theme="dark"] .report-page .gallery-button {
+  background: #26372f !important;
+  color: #edf7f1 !important;
+  border: 1px solid #496254 !important;
+}
+
+html[data-theme="dark"] .report-page .message-box {
+  background: #332d1d !important;
+  color: #f0dfb3 !important;
+  border-color: #806b3c !important;
+}
+
+html[data-theme="dark"] .report-page .error-message,
+html[data-theme="dark"] .report-page .location-error {
+  color: #ffaaa5 !important;
+}
+
+html[data-theme="dark"] .report-page .report-header {
+  color: #edf7f1 !important;
+}
+
+html[data-theme="dark"] .report-page .report-header h2 {
+  color: #edf7f1 !important;
+}
+
+/* Keep Leaflet map controls legible and do not recolor map tiles. */
+html[data-theme="dark"] .report-page .leaflet-control-zoom a {
+  background: #f8faf9 !important;
+  color: #17251e !important;
+}
+
+html[data-theme="dark"] .report-page .leaflet-popup-content-wrapper,
+html[data-theme="dark"] .report-page .leaflet-popup-tip {
+  background: #f8faf9 !important;
+  color: #17251e !important;
 }

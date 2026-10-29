@@ -38,7 +38,7 @@ function ReportIssue({ onBack, user }) {
   const [locationLoading, setLocationLoading] = useState(true);
   const [locationError, setLocationError] = useState("");
   const [address, setAddress] = useState(null);
-
+  const [mapView, setMapView] = useState("street");
   const [submitting, setSubmitting] = useState(false);
   const [complaintSubmitted, setComplaintSubmitted] = useState(false);
   const [complaintId, setComplaintId] = useState(null);
@@ -92,32 +92,48 @@ function ReportIssue({ onBack, user }) {
             }
           );
 
-          const data = response.data;
+          const data = response.data || {};
           const addressData = data.address || {};
 
+          // Reverse-geocoding fields vary by village, town, and city.
+          // Try several OpenStreetMap address fields before using a fallback.
+          const area =
+            addressData.suburb ||
+            addressData.neighbourhood ||
+            addressData.residential ||
+            addressData.quarter ||
+            addressData.hamlet ||
+            addressData.village ||
+            addressData.town ||
+            addressData.city_district ||
+            addressData.city ||
+            addressData.county ||
+            "Area not identified";
+
+          const villageOrTown =
+            addressData.village ||
+            addressData.town ||
+            addressData.city ||
+            addressData.municipality ||
+            addressData.hamlet ||
+            addressData.county ||
+            "Not available";
+
+          const district =
+            addressData.state_district ||
+            addressData.district ||
+            addressData.county ||
+            "Not available";
+
           setAddress({
-            area:
-              addressData.suburb ||
-              addressData.neighbourhood ||
-              addressData.village ||
-              addressData.town ||
-              "Not available",
-
-            village:
-              addressData.village ||
-              addressData.town ||
-              addressData.city ||
-              "Not available",
-
-            district:
-              addressData.county ||
-              addressData.district ||
-              "Not available",
-
+            area,
+            village: villageOrTown,
+            district,
             state: addressData.state || "Not available",
-            country: addressData.country || "India",
+            country: addressData.country || "Not available",
+            postcode: addressData.postcode || "",
             fullAddress:
-              data.display_name || "Address not available",
+              data.display_name || "Readable address not available",
           });
 
           setLocationError("");
@@ -471,38 +487,96 @@ function ReportIssue({ onBack, user }) {
                 </p>
               </div>
 
-              <div className="map-container">
-                <MapContainer
-                  center={[
-                    location.latitude,
-                    location.longitude,
-                  ]}
-                  zoom={16}
-                  scrollWheelZoom={true}
-                  style={{
-                    height: "260px",
-                    width: "100%",
-                  }}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
+              <div className="map-section">
+  {/* MAP VIEW CONTROLS */}
+  <div className="map-view-controls">
+    <div>
+      <h3>🗺️ Location Map</h3>
+      <p>Explore the surrounding roads and buildings.</p>
+    </div>
 
-                  <Marker
-                    position={[
-                      location.latitude,
-                      location.longitude,
-                    ]}
-                  >
-                    <Popup>
-                      <strong>CivicFix AI Location</strong>
-                      <br />
-                      {address.area}, {address.state}
-                    </Popup>
-                  </Marker>
-                </MapContainer>
-              </div>
+    <div className="map-view-buttons">
+      <button
+        type="button"
+        className={
+          mapView === "street"
+            ? "map-view-button active"
+            : "map-view-button"
+        }
+        onClick={() => setMapView("street")}
+      >
+        🗺️ Street
+      </button>
+
+      <button
+        type="button"
+        className={
+          mapView === "satellite"
+            ? "map-view-button active"
+            : "map-view-button"
+        }
+        onClick={() => setMapView("satellite")}
+      >
+        🛰️ Satellite
+      </button>
+    </div>
+  </div>
+
+  {/* INTERACTIVE LEAFLET MAP */}
+  <div className="map-container">
+    <MapContainer
+      key={mapView}
+      center={[
+        location.latitude,
+        location.longitude,
+      ]}
+      zoom={17}
+      minZoom={3}
+      maxZoom={19}
+      scrollWheelZoom={true}
+      zoomControl={true}
+      style={{
+        height: "400px",
+        width: "100%",
+      }}
+    >
+      {mapView === "street" ? (
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+          url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+          maxZoom={19}
+        />
+      ) : (
+        <TileLayer
+  attribution='Imagery © <a href="https://www.esri.com/">Esri</a>'
+  url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+  maxNativeZoom={19}
+  maxZoom={22}
+/>
+      )}
+
+      <Marker
+        position={[
+          location.latitude,
+          location.longitude,
+        ]}
+      >
+        <Popup>
+          <strong>CivicFix AI Location</strong>
+          <br />
+          {address.area}, {address.state}
+          <br />
+          {address.fullAddress}
+        </Popup>
+      </Marker>
+    </MapContainer>
+  </div>
+
+  <p className="map-help-text">
+    💡 Zoom in to explore roads and surrounding buildings.
+    Select the Satellite option to view aerial imagery.
+  </p>
+</div>
             </>
           ) : (
             <p className="location-error">

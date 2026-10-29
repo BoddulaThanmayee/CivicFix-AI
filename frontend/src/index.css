@@ -1,111 +1,625 @@
+
+/* =========================================
+   CIVICFIX AI — GLOBAL DESIGN SYSTEM
+========================================= */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --primary: #168568;
+  --primary-hover: #116b53;
+  --primary-soft: #e8f6f0;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  --accent: #0ea5a4;
+  --accent-soft: #e6f8f7;
+
+  --success: #168568;
+  --warning: #d97706;
+  --danger: #dc4545;
+
+  --bg: #f5f8f7;
+  --surface: #ffffff;
+  --surface-secondary: #f0f5f3;
+
+  --text: #18332a;
+  --text-secondary: #60766d;
+  --text-muted: #87968f;
+
+  --border: #dfe9e4;
+  --shadow: 0 8px 30px rgba(25, 65, 51, 0.07);
+  --shadow-hover: 0 14px 35px rgba(25, 65, 51, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* =========================================
+   DARK THEME
+========================================= */
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+:root[data-theme="dark"] {
+  --primary: #36c69b;
+  --primary-hover: #52d9ad;
+  --primary-soft: #183d34;
+
+  --accent: #43d5d0;
+  --accent-soft: #183d3c;
+
+  --success: #36c69b;
+  --warning: #f5b84b;
+  --danger: #ff7272;
+
+  --bg: #101916;
+  --surface: #19231f;
+  --surface-secondary: #222e28;
+
+  --text: #edf7f1;
+  --text-secondary: #b0c4b9;
+  --text-muted: #879b90;
+
+  --border: #304239;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  --shadow-hover: 0 14px 35px rgba(0, 0, 0, 0.28);
+
+  color-scheme: dark;
+}
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: var(--text);
+  background: var(--bg);
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+  width: 100%;
+  min-height: 100vh;
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  font-family: inherit;
+  line-height: 1.25;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+h1 {
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+h2 {
+  font-size: clamp(23px, 3vw, 32px);
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button,
+input,
+select,
+textarea,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+::selection {
+  color: #ffffff;
+  background: var(--primary);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 20px;
+}
+
+/* =========================================
+   SHARED COMPONENT STYLES
+========================================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+.primary-button {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 11px 18px;
+
+  color: #ffffff;
+  background: var(--primary);
+
+  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+/* =========================================
+   RESPONSIVE HELPERS
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    letter-spacing: -0.7px;
+  }
+
+  button {
+    min-height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ========================================
+   CIVICFIX AI - LIGHT AND DARK THEME
+======================================== */
+
+:root,
+:root[data-theme="light"],
+body[data-theme="light"] {
+  color-scheme: light;
+
+  --theme-bg: #f5f8f7;
+  --theme-surface: #ffffff;
+  --theme-text: #1c2925;
+  --theme-muted: #65756e;
+  --theme-border: #dce6e1;
+}
+
+:root[data-theme="dark"],
+body[data-theme="dark"] {
+  color-scheme: dark;
+
+  --theme-bg: #101916;
+  --theme-surface: #19241f;
+  --theme-text: #edf5f0;
+  --theme-muted: #b0c0b7;
+  --theme-border: #34453c;
+}
+
+/* Apply theme to the main page */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Common surfaces */
+
+.auth-page,
+.app {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+.auth-card,
+.visual-card,
+.option-card,
+.feature {
+  background-color: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+/* Text */
+
+.auth-heading p,
+.description,
+.feature p,
+.option-card small {
+  color: var(--theme-muted);
+}
+/* =========================================
+   CIVICFIX AI — GLOBAL THEME ENFORCEMENT
+========================================= */
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Smooth theme transition */
+body,
+#root,
+.app,
+.auth-page,
+.navbar,
+.hero,
+.features,
+.auth-card,
+.visual-card,
+.option-card,
+.feature,
+.card {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Global page background */
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] #root {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Common text elements */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] label,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] .logo,
+html[data-theme="dark"] .welcome-user {
+  color: var(--text);
+}
+
+/* Common form fields */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: var(--surface-secondary);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: var(--text-muted);
+}
+
+/* Cards and containers */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .auth-card,
+html[data-theme="dark"] .visual-card,
+html[data-theme="dark"] .option-card,
+html[data-theme="dark"] .feature {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* Navigation and footer-like sections */
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .features {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+/* Common secondary text */
+html[data-theme="dark"] p,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .location,
+html[data-theme="dark"] .option-card small,
+html[data-theme="dark"] .feature p {
+  color: var(--text-secondary);
+}
+
+/* Buttons that normally use a white background */
+html[data-theme="dark"] .logout-button {
+  background-color: var(--surface-secondary);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+/* Authentication page */
+html[data-theme="dark"] .auth-page {
+  background:
+    radial-gradient(circle at 10% 15%, rgba(54, 198, 155, 0.10), transparent 32%),
+    radial-gradient(circle at 90% 85%, rgba(67, 213, 208, 0.08), transparent 30%),
+    var(--bg);
+}
+
+html[data-theme="dark"] .auth-heading h1,
+html[data-theme="dark"] .auth-logo {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .auth-heading > p:last-child,
+html[data-theme="dark"] .auth-switch {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .auth-form label {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .auth-form input {
+  background-color: var(--surface-secondary);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .auth-form input:focus {
+  background-color: var(--surface-secondary);
+}
+
+html[data-theme="dark"] .auth-loading {
+  background: var(--bg);
+}
+
+html[data-theme="dark"] .auth-loading-card {
+  background: var(--surface);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .auth-loading-card h2,
+html[data-theme="dark"] .auth-loading-card p {
+  color: var(--text);
+}
+
+/* Visual accents */
+html[data-theme="dark"] .scan-circle {
+  background-color: var(--surface-secondary);
+}
+
+html[data-theme="dark"] .status {
+  background-color: var(--primary-soft);
+  color: var(--primary);
+}
+
+/* Respect system form controls */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  color-scheme: dark;
+}
+
+/* =========================================================
+   CIVICFIX AI — GLOBAL DARK MODE CONTRAST SAFETY NET
+   Shared variables plus common components used across pages.
+========================================================= */
+:root[data-theme="light"] {
+  --theme-bg: #f5f8f7;
+  --theme-surface: #ffffff;
+  --theme-surface-secondary: #f0f5f3;
+  --theme-text: #18332a;
+  --theme-muted: #52685f;
+  --theme-border: #dce6e1;
+}
+:root[data-theme="dark"] {
+  --theme-bg: #101916;
+  --theme-surface: #19231f;
+  --theme-surface-secondary: #222e28;
+  --theme-text: #edf7f1;
+  --theme-muted: #b9ccc2;
+  --theme-border: #304239;
+}
+
+html[data-theme="light"] body,
+html[data-theme="light"] #root {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+html[data-theme="dark"] body,
+html[data-theme="dark"] #root {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+/* Common readable text in dark mode */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] label,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] b,
+html[data-theme="dark"] th,
+html[data-theme="dark"] legend {
+  color: var(--theme-text);
+}
+html[data-theme="dark"] p,
+html[data-theme="dark"] small,
+html[data-theme="dark"] .subtitle,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .helper-text,
+html[data-theme="dark"] .muted {
+  color: var(--theme-muted);
+}
+
+/* Typical panels/cards. Keep map tiles and map controls untouched. */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .form-card,
+html[data-theme="dark"] .location-card,
+html[data-theme="dark"] .issue-card,
+html[data-theme="dark"] .complaint-card,
+html[data-theme="dark"] .notification-card,
+html[data-theme="dark"] .chat-card,
+html[data-theme="dark"] .chat-panel,
+html[data-theme="dark"] .modal-content,
+html[data-theme="dark"] .dashboard-card {
+  background-color: var(--theme-surface);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+/* Form fields */
+html[data-theme="dark"] input:not([type="checkbox"]):not([type="radio"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background-color: var(--theme-surface-secondary);
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #9fb3a8;
+  opacity: 1;
+}
+
+/* Avoid white buttons with pale text, and preserve intentional primary buttons. */
+html[data-theme="dark"] button:not(.primary-button):not(.report-button):not(.auth-submit-button) {
+  border-color: var(--theme-border);
+}
+html[data-theme="dark"] .back-button,
+html[data-theme="dark"] .secondary-button,
+html[data-theme="dark"] .cancel-button {
+  background-color: var(--theme-surface-secondary);
+  color: var(--theme-text);
+}
+
+/* Links and keyboard focus */
+html[data-theme="dark"] a {
+  color: #71dfb7;
+}
+html[data-theme="dark"] :focus-visible {
+  outline-color: #43d5d0;
 }

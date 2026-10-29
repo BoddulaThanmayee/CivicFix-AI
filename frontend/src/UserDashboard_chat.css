@@ -1,0 +1,439 @@
+/* CivicFix AI citizen-officer chat and chatbot styles.
+   Includes explicit light and dark theme colors for readable contrast. */
+
+.citizen-chat-card {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid #d7e2df;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #18312d;
+  box-shadow: 0 4px 18px rgba(20, 40, 35, 0.06);
+}
+
+.citizen-chat-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.citizen-chat-heading h3 { margin: 0 0 5px; color: inherit; }
+.citizen-chat-heading p { margin: 0; color: inherit; opacity: 0.8; }
+
+.citizen-chat-heading button,
+.citizen-chat-form button,
+.chatbot-panel button {
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: #087f74;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.citizen-chat-heading button:hover,
+.citizen-chat-form button:hover,
+.chatbot-panel button:hover,
+.chatbot-toggle:hover {
+  background: #06665e;
+}
+
+.citizen-chat-heading button:active,
+.citizen-chat-form button:active,
+.chatbot-panel button:active { transform: translateY(1px); }
+
+.citizen-chat-heading button:disabled,
+.citizen-chat-form button:disabled,
+.chatbot-panel button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.citizen-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 14px 0;
+  padding: 12px;
+  background: #f2f6f5;
+  border: 1px solid #e0e8e5;
+  border-radius: 12px;
+}
+
+.chat-message {
+  align-self: flex-start;
+  max-width: 85%;
+  padding: 10px 12px;
+  border: 1px solid #d6e1de;
+  border-radius: 12px 12px 12px 4px;
+  background: #ffffff;
+  color: #18312d;
+  overflow-wrap: anywhere;
+}
+
+.chat-message-own {
+  align-self: flex-end;
+  border-color: #8bd8c7;
+  border-radius: 12px 12px 4px 12px;
+  background: #d5f5eb;
+  color: #123b32;
+}
+
+.chat-message p { margin: 5px 0; color: inherit; }
+.chat-message small { color: inherit; opacity: 0.78; }
+.chat-message strong { color: inherit; font-size: 0.8rem; }
+.chat-empty { color: inherit; opacity: 0.75; font-size: 0.9rem; }
+.chat-error { color: #b42318; font-weight: 600; }
+
+.citizen-chat-form,
+.chatbot-panel form { display: flex; gap: 8px; }
+
+.citizen-chat-form input,
+.chatbot-panel input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #aebfba;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #18312d;
+  outline: none;
+}
+
+.citizen-chat-form input:focus,
+.chatbot-panel input:focus {
+  border-color: #087f74;
+  box-shadow: 0 0 0 3px rgba(8, 127, 116, 0.16);
+}
+
+.civicfix-chatbot { position: fixed; right: 22px; bottom: 22px; z-index: 1000; }
+
+.chatbot-toggle {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 18px;
+  background: #087f74;
+  color: #ffffff;
+  font-weight: 800;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+}
+
+.chatbot-panel {
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  width: min(350px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid #d0ddd9;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #18312d;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-panel h3 { margin: 0 0 8px; color: inherit; }
+.chatbot-panel p { color: inherit; font-size: 0.9rem; opacity: 0.86; }
+.chatbot-answer {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #b7e5da;
+  border-radius: 10px;
+  background: #eaf8f4;
+  color: #173d35;
+  line-height: 1.5;
+}
+
+/* Explicit dark theme. The app sets data-theme on html and body. */
+html[data-theme="dark"] .citizen-chat-card,
+body[data-theme="dark"] .citizen-chat-card {
+  background: #18232b;
+  color: #edf4f6;
+  border-color: #3b4b55;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="dark"] .citizen-chat-messages,
+body[data-theme="dark"] .citizen-chat-messages {
+  background: #101920;
+  border-color: #354650;
+}
+
+html[data-theme="dark"] .chat-message,
+body[data-theme="dark"] .chat-message {
+  background: #263640;
+  color: #f0f6f8;
+  border-color: #435762;
+}
+
+html[data-theme="dark"] .chat-message-own,
+body[data-theme="dark"] .chat-message-own {
+  background: #075e54;
+  color: #f0fffb;
+  border-color: #168879;
+}
+
+html[data-theme="dark"] .citizen-chat-form input,
+html[data-theme="dark"] .chatbot-panel input,
+body[data-theme="dark"] .citizen-chat-form input,
+body[data-theme="dark"] .chatbot-panel input {
+  background: #101920;
+  color: #f0f6f8;
+  border-color: #52636d;
+}
+
+html[data-theme="dark"] .citizen-chat-form input::placeholder,
+html[data-theme="dark"] .chatbot-panel input::placeholder,
+body[data-theme="dark"] .citizen-chat-form input::placeholder,
+body[data-theme="dark"] .chatbot-panel input::placeholder {
+  color: #b7c5cc;
+  opacity: 1;
+}
+
+html[data-theme="dark"] .citizen-chat-form input:focus,
+html[data-theme="dark"] .chatbot-panel input:focus,
+body[data-theme="dark"] .citizen-chat-form input:focus,
+body[data-theme="dark"] .chatbot-panel input:focus {
+  border-color: #45c7b4;
+  box-shadow: 0 0 0 3px rgba(69, 199, 180, 0.2);
+}
+
+html[data-theme="dark"] .chatbot-panel,
+body[data-theme="dark"] .chatbot-panel {
+  background: #18232b;
+  color: #edf4f6;
+  border-color: #3b4b55;
+}
+
+html[data-theme="dark"] .chatbot-answer,
+body[data-theme="dark"] .chatbot-answer {
+  background: #123b36;
+  color: #e9fffa;
+  border-color: #276b61;
+}
+
+html[data-theme="dark"] .citizen-chat-heading button,
+html[data-theme="dark"] .citizen-chat-form button,
+html[data-theme="dark"] .chatbot-panel button,
+html[data-theme="dark"] .chatbot-toggle,
+body[data-theme="dark"] .citizen-chat-heading button,
+body[data-theme="dark"] .citizen-chat-form button,
+body[data-theme="dark"] .chatbot-panel button,
+body[data-theme="dark"] .chatbot-toggle {
+  background: #087f74;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .citizen-chat-heading button:hover,
+html[data-theme="dark"] .citizen-chat-form button:hover,
+html[data-theme="dark"] .chatbot-panel button:hover,
+html[data-theme="dark"] .chatbot-toggle:hover,
+body[data-theme="dark"] .citizen-chat-heading button:hover,
+body[data-theme="dark"] .citizen-chat-form button:hover,
+body[data-theme="dark"] .chatbot-panel button:hover,
+body[data-theme="dark"] .chatbot-toggle:hover {
+  background: #0b9c8d;
+}
+
+html[data-theme="dark"] .chat-error,
+body[data-theme="dark"] .chat-error { color: #ff9e9e; }
+
+@media (max-width: 600px) {
+  .citizen-chat-heading { align-items: flex-start; flex-direction: column; }
+  .citizen-chat-form { flex-direction: column; }
+  .civicfix-chatbot { right: 12px; bottom: 12px; }
+}
+
+/* Contrast fix: keep these rules stronger than dashboard-wide card/heading styles. */
+.citizen-chat-card {
+  background: #ffffff !important;
+  color: #18312d !important;
+  border: 1px solid #cbd8d4 !important;
+}
+.citizen-chat-card .citizen-chat-heading h3,
+.citizen-chat-card .citizen-chat-heading p {
+  color: #18312d !important;
+  opacity: 1 !important;
+}
+.citizen-chat-card .citizen-chat-heading button {
+  background: #087f74 !important;
+  color: #ffffff !important;
+}
+
+/* Support common theme implementations: data-theme on html/body or a dark class. */
+html[data-theme="dark"] .citizen-chat-card,
+body[data-theme="dark"] .citizen-chat-card,
+html.dark .citizen-chat-card,
+body.dark .citizen-chat-card,
+.dark .citizen-chat-card {
+  background: #182a25 !important;
+  color: #f3faf7 !important;
+  border-color: #3b6658 !important;
+}
+html[data-theme="dark"] .citizen-chat-card .citizen-chat-heading h3,
+html[data-theme="dark"] .citizen-chat-card .citizen-chat-heading p,
+body[data-theme="dark"] .citizen-chat-card .citizen-chat-heading h3,
+body[data-theme="dark"] .citizen-chat-card .citizen-chat-heading p,
+html.dark .citizen-chat-card .citizen-chat-heading h3,
+html.dark .citizen-chat-card .citizen-chat-heading p,
+body.dark .citizen-chat-card .citizen-chat-heading h3,
+body.dark .citizen-chat-card .citizen-chat-heading p,
+.dark .citizen-chat-card .citizen-chat-heading h3,
+.dark .citizen-chat-card .citizen-chat-heading p {
+  color: #f3faf7 !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] .citizen-chat-card .citizen-chat-heading p,
+body[data-theme="dark"] .citizen-chat-card .citizen-chat-heading p,
+html.dark .citizen-chat-card .citizen-chat-heading p,
+body.dark .citizen-chat-card .citizen-chat-heading p,
+.dark .citizen-chat-card .citizen-chat-heading p {
+  color: #c4d9d0 !important;
+}
+
+
+/* Rapido-inspired complaint tracking timeline */
+.complaint-tracking {
+  margin: 18px 0;
+  padding: 18px;
+  border: 1px solid #d8e6df;
+  border-radius: 16px;
+  background: #f8fbf9;
+  color: #18332a;
+}
+.tracking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.tracking-header h3 { margin: 0 0 4px; color: inherit; }
+.tracking-header p { margin: 0; color: #52685f; }
+.tracking-header button {
+  border: 0;
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: #087f68;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tracking-progress {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.tracking-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: #6b7d74;
+  font-size: 12px;
+}
+.tracking-step-dot {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #cbd8d1;
+  border-radius: 50%;
+  background: #fff;
+  color: #65756d;
+  font-weight: 800;
+}
+.tracking-step.is-complete .tracking-step-dot {
+  background: #d8f5e8;
+  color: #08704e;
+  border-color: #42b98b;
+}
+.tracking-step.is-current .tracking-step-dot {
+  box-shadow: 0 0 0 4px rgba(8, 127, 104, 0.15);
+}
+.tracking-step.is-current .tracking-step-label {
+  color: #087f68;
+  font-weight: 800;
+}
+.tracking-timeline {
+  margin-top: 20px;
+  padding: 16px;
+  border-top: 1px solid #d8e6df;
+}
+.tracking-event {
+  position: relative;
+  display: flex;
+  gap: 12px;
+  padding: 0 0 18px;
+}
+.tracking-event:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: 0;
+  width: 2px;
+  background: #b9ddce;
+}
+.tracking-event-dot {
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #087f68;
+  border: 2px solid #d5f3e7;
+}
+.tracking-event strong { color: inherit; }
+.tracking-event p { margin: 3px 0; color: #52685f; }
+.tracking-event small { color: #6d8177; }
+.tracking-location {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #eaf4ef;
+}
+.tracking-location p { margin: 5px 0 8px; color: #405a50; }
+.tracking-location a { color: #087f68; font-weight: 700; }
+.tracking-empty { color: #52685f; }
+
+html[data-theme="dark"] .complaint-tracking,
+body[data-theme="dark"] .complaint-tracking {
+  background: #192720;
+  border-color: #354a3f;
+  color: #edf7f1;
+}
+html[data-theme="dark"] .tracking-header p,
+html[data-theme="dark"] .tracking-event p,
+html[data-theme="dark"] .tracking-event small,
+html[data-theme="dark"] .tracking-empty {
+  color: #b9ccc2;
+}
+html[data-theme="dark"] .tracking-step { color: #a7bbb0; }
+html[data-theme="dark"] .tracking-step-dot {
+  background: #222f28;
+  border-color: #496254;
+  color: #dcece3;
+}
+html[data-theme="dark"] .tracking-step.is-complete .tracking-step-dot {
+  background: #075e48;
+  border-color: #28a879;
+  color: #ffffff;
+}
+html[data-theme="dark"] .tracking-step.is-current .tracking-step-label { color: #73e0b8; }
+html[data-theme="dark"] .tracking-timeline { border-color: #354a3f; }
+html[data-theme="dark"] .tracking-location {
+  background: #22362b;
+  border: 1px solid #3d5b49;
+}
+html[data-theme="dark"] .tracking-location p { color: #c5d8ce; }
+html[data-theme="dark"] .tracking-location a { color: #73e0b8; }
+
+@media (max-width: 650px) {
+  .tracking-header { align-items: flex-start; flex-direction: column; }
+  .tracking-progress { grid-template-columns: repeat(5, minmax(55px, 1fr)); overflow-x: auto; padding-bottom: 8px; }
+  .tracking-step-label { max-width: 70px; }
+}

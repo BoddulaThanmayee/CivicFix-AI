@@ -524,3 +524,260 @@
   }
 
 }
+/* =========================================
+   USER DASHBOARD — GLOBAL DARK MODE
+========================================= */
+
+html[data-theme="dark"] .user-dashboard,
+html[data-theme="dark"] .user-dashboard-page,
+html[data-theme="dark"] .dashboard-container {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="dark"] .user-dashboard h1,
+html[data-theme="dark"] .user-dashboard h2,
+html[data-theme="dark"] .user-dashboard h3,
+html[data-theme="dark"] .user-dashboard h4,
+html[data-theme="dark"] .user-dashboard label,
+html[data-theme="dark"] .user-dashboard strong {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .user-dashboard p,
+html[data-theme="dark"] .user-dashboard span {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] .user-dashboard .card,
+html[data-theme="dark"] .user-dashboard .stat-card,
+html[data-theme="dark"] .user-dashboard .dashboard-card,
+html[data-theme="dark"] .user-dashboard .issue-card,
+html[data-theme="dark"] .user-dashboard .issue-item,
+html[data-theme="dark"] .user-dashboard .filter-section {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .user-dashboard input,
+html[data-theme="dark"] .user-dashboard select,
+html[data-theme="dark"] .user-dashboard textarea {
+  background-color: var(--surface-secondary);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .user-dashboard input::placeholder,
+html[data-theme="dark"] .user-dashboard textarea::placeholder {
+  color: var(--text-muted);
+}
+
+html[data-theme="dark"] .user-dashboard table th,
+html[data-theme="dark"] .user-dashboard table td {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+html[data-theme="dark"] .user-dashboard table thead th {
+  background-color: var(--surface-secondary);
+}
+
+html[data-theme="dark"] .user-dashboard hr {
+  border-color: var(--border);
+}
+/* ================================================
+   CIVICFIX AI — USER DASHBOARD DARK MODE FIX
+   Uses the actual class names from UserDashboard.jsx
+================================================ */
+
+html[data-theme="dark"] .user-dashboard {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Dashboard headings and user information */
+html[data-theme="dark"] .user-dashboard .dashboard-header h1,
+html[data-theme="dark"] .user-dashboard .dashboard-header h2,
+html[data-theme="dark"] .user-dashboard .dashboard-header h3,
+html[data-theme="dark"] .user-dashboard .dashboard-header strong,
+html[data-theme="dark"] .user-dashboard .section-header h2,
+html[data-theme="dark"] .user-dashboard .stat-card h3,
+html[data-theme="dark"] .user-dashboard .complaint-card h3,
+html[data-theme="dark"] .user-dashboard .location-details strong {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] .user-dashboard .dashboard-header p,
+html[data-theme="dark"] .user-dashboard .section-header p,
+html[data-theme="dark"] .user-dashboard .stat-card p,
+html[data-theme="dark"] .user-dashboard .dashboard-loading,
+html[data-theme="dark"] .user-dashboard .no-complaints p,
+html[data-theme="dark"] .user-dashboard .complaint-label,
+html[data-theme="dark"] .user-dashboard .info-label,
+html[data-theme="dark"] .user-dashboard .location-details p {
+  color: var(--text-secondary) !important;
+}
+
+/* Statistics cards */
+html[data-theme="dark"] .user-dashboard .stat-card {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+html[data-theme="dark"] .user-dashboard .stat-icon {
+  background: var(--surface-secondary) !important;
+}
+
+/* Complaints section */
+html[data-theme="dark"] .user-dashboard .my-complaints-section {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* Individual complaint cards */
+html[data-theme="dark"] .user-dashboard .complaint-card {
+  background: var(--surface-secondary) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .user-dashboard .complaint-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+html[data-theme="dark"] .user-dashboard .complaint-card-header {
+  border-bottom-color: var(--border) !important;
+}
+
+html[data-theme="dark"] .user-dashboard .info-value {
+  color: var(--text) !important;
+}
+
+/* Location information */
+html[data-theme="dark"] .user-dashboard .location-details {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+}
+
+/* Buttons */
+html[data-theme="dark"] .user-dashboard .dashboard-back-button,
+html[data-theme="dark"] .user-dashboard .report-now-button {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .user-dashboard .refresh-button {
+  background: var(--surface-secondary) !important;
+  color: var(--text) !important;
+  border-color: var(--border) !important;
+}
+
+html[data-theme="dark"] .user-dashboard .refresh-button:hover {
+  background: var(--surface) !important;
+}
+
+/* Loading spinner */
+html[data-theme="dark"] .user-dashboard .loading-spinner {
+  border-color: var(--border) !important;
+  border-top-color: var(--primary) !important;
+}
+
+/* Empty state */
+html[data-theme="dark"] .user-dashboard .no-complaints h3 {
+  color: var(--text) !important;
+}
+
+/* Error message remains readable */
+html[data-theme="dark"] .user-dashboard .dashboard-error {
+  background: #3a2022 !important;
+  color: #ffb4b4 !important;
+  border-color: #754044 !important;
+}
+
+/* Smooth transitions */
+.user-dashboard,
+.user-dashboard .stat-card,
+.user-dashboard .my-complaints-section,
+.user-dashboard .complaint-card,
+.user-dashboard .location-details,
+.user-dashboard .refresh-button {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================
+   OFFICER ASSIGNMENT CARD
+========================================= */
+
+.officer-contact-card {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid #365448;
+  border-radius: 14px;
+  background: rgba(35, 55, 46, 0.55);
+}
+
+.officer-contact-card h3 {
+  margin: 0 0 16px;
+  color: #b8d8c8;
+  font-size: 19px;
+}
+
+.officer-contact-details p {
+  margin: 12px 0;
+  color: #f0f5f2;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+
+.officer-contact-details strong {
+  color: #b8d8c8;
+}
+
+.call-officer-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border-radius: 9px;
+  background: #218838;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.call-officer-button:hover {
+  background: #176b2b;
+}
+
+.officer-pending-message {
+  color: #d9e5df;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .officer-contact-card {
+    padding: 16px;
+  }
+
+  .call-officer-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

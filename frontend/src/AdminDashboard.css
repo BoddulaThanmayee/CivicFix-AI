@@ -684,3 +684,476 @@
   }
 
 }
+
+.assignment-section {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.assignment-section h4 {
+  margin: 0 0 12px;
+  color: #1e293b;
+}
+
+.assignment-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.assignment-form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.assignment-button {
+  grid-column: 1 / -1;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.assignment-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.assigned-officer-details {
+  margin-bottom: 12px;
+}
+
+.assigned-officer-details p {
+  margin: 5px 0;
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.assignment-error {
+  color: #b91c1c;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.assignment-success {
+  color: #15803d;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .assignment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-button {
+    grid-column: auto;
+  }
+}
+/* Officer assignment section */
+.assignment-section {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.assignment-section h4 {
+  margin: 0 0 12px;
+  color: #1e293b;
+}
+
+.assignment-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.assignment-form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  color: #0f172a;
+}
+
+.assignment-button {
+  grid-column: 1 / -1;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.assignment-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.assigned-officer-details {
+  margin-bottom: 12px;
+}
+
+.assigned-officer-details p {
+  margin: 5px 0;
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.assignment-error {
+  color: #b91c1c;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.assignment-success {
+  color: #15803d;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .assignment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-button {
+    grid-column: auto;
+  }
+}
+/* Officer assignment section */
+.assignment-section {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dbe3ee;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.assignment-section h4 {
+  margin: 0 0 12px;
+  color: #1e293b;
+}
+
+.assignment-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.assignment-form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+  color: #0f172a;
+}
+
+.assignment-button {
+  grid-column: 1 / -1;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.assignment-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.assigned-officer-details {
+  margin-bottom: 12px;
+}
+
+.assigned-officer-details p {
+  margin: 5px 0;
+  color: #334155;
+  overflow-wrap: anywhere;
+}
+
+.assignment-error {
+  color: #b91c1c;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+.assignment-success {
+  color: #15803d;
+  margin: 8px 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 560px) {
+  .assignment-form {
+    grid-template-columns: 1fr;
+  }
+
+  .assignment-button {
+    grid-column: auto;
+  }
+}
+
+.assignment-help {
+  margin: 0 0 12px;
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.manual-assignment-details {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #dbe3ee;
+}
+
+.manual-assignment-details summary {
+  color: #334155;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.manual-assignment-details[open] summary {
+  margin-bottom: 12px;
+}
+
+.manual-assignment-button {
+  background: #475569;
+}
+
+
+
+/* =========================================================
+   CIVICFIX AI — ADMIN DASHBOARD GLOBAL THEME SUPPORT
+========================================================= */
+.admin-page,
+.admin-page * {
+  transition: background-color 0.22s ease, color 0.22s ease,
+    border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.admin-page {
+  background: var(--bg, #f5f7fb);
+  color: var(--text, #1f2937);
+}
+
+.admin-page .admin-header,
+.admin-page .stat-card,
+.admin-page .complaint-card,
+.admin-page .empty-state,
+.admin-page .dashboard-error {
+  background: var(--surface, #ffffff);
+  color: var(--text, #1f2937);
+  border-color: var(--border, #e5e7eb);
+}
+
+.admin-page .admin-header h1,
+.admin-page .dashboard-title h2,
+.admin-page .stat-card h3,
+.admin-page .section-header h3,
+.admin-page .complaint-card-header h3,
+.admin-page .empty-state h3,
+.admin-page .info-item strong,
+.admin-page .assigned-officer-details p {
+  color: var(--text, #111827);
+}
+
+.admin-page .admin-header p,
+.admin-page .dashboard-title > div > p:last-child,
+.admin-page .stat-card p,
+.admin-page .section-header p,
+.admin-page .info-label,
+.admin-page .complaint-footer,
+.admin-page .dashboard-message,
+.admin-page .empty-state p,
+.admin-page .dashboard-error p,
+.admin-page .address-box span,
+.admin-page .address-box p,
+.admin-page .assignment-section h4,
+.admin-page .assignment-help,
+.admin-page .manual-assignment-details summary {
+  color: var(--text-secondary, #6b7280);
+}
+
+.admin-page .complaint-card-header,
+.admin-page .manual-assignment-details {
+  border-color: var(--border, #eef0f3);
+}
+
+.admin-page .address-box,
+.admin-page .assignment-section {
+  background: var(--surface-secondary, #f8fafc);
+  border-color: var(--border, #dbe3ee);
+  color: var(--text, #1f2937);
+}
+
+.admin-page .assignment-form input,
+.admin-page .complaint-search-input,
+.admin-page .status-filter-select,
+.admin-page .status-select {
+  background: var(--surface, #ffffff);
+  color: var(--text, #0f172a);
+  border-color: var(--border, #cbd5e1);
+}
+
+.admin-page .assignment-form input::placeholder,
+.admin-page .complaint-search-input::placeholder {
+  color: var(--text-muted, #87968f);
+}
+
+.admin-page .admin-header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-page .admin-theme-button {
+  border: 1px solid var(--border, #dfe9e4);
+  border-radius: 9px;
+  padding: 10px 14px;
+  background: var(--surface-secondary, #f0f5f3);
+  color: var(--text, #18332a);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.admin-page .admin-theme-button:hover {
+  border-color: var(--primary, #2563eb);
+  transform: translateY(-1px);
+}
+
+.admin-page .admin-back-button {
+  background: var(--surface-secondary, #eef2ff);
+  color: var(--text, #4338ca);
+}
+
+.admin-page .loading-spinner {
+  border-color: var(--border, #e5e7eb);
+  border-top-color: var(--primary, #2563eb);
+}
+
+/* Dark mode */
+html[data-theme="dark"] .admin-page {
+  background: var(--bg, #101916) !important;
+  color: var(--text, #edf7f1) !important;
+}
+
+html[data-theme="dark"] .admin-page .admin-header,
+html[data-theme="dark"] .admin-page .stat-card,
+html[data-theme="dark"] .admin-page .complaint-card,
+html[data-theme="dark"] .admin-page .empty-state,
+html[data-theme="dark"] .admin-page .dashboard-error {
+  background: var(--surface, #19231f) !important;
+  color: var(--text, #edf7f1) !important;
+  border-color: var(--border, #304239) !important;
+}
+
+html[data-theme="dark"] .admin-page .dashboard-title h2,
+html[data-theme="dark"] .admin-page .admin-header h1,
+html[data-theme="dark"] .admin-page .stat-card h3,
+html[data-theme="dark"] .admin-page .section-header h3,
+html[data-theme="dark"] .admin-page .complaint-card-header h3,
+html[data-theme="dark"] .admin-page .empty-state h3,
+html[data-theme="dark"] .admin-page .info-item strong,
+html[data-theme="dark"] .admin-page .assigned-officer-details p {
+  color: var(--text, #edf7f1) !important;
+}
+
+html[data-theme="dark"] .admin-page .admin-header p,
+html[data-theme="dark"] .admin-page .dashboard-title > div > p:last-child,
+html[data-theme="dark"] .admin-page .stat-card p,
+html[data-theme="dark"] .admin-page .section-header p,
+html[data-theme="dark"] .admin-page .info-label,
+html[data-theme="dark"] .admin-page .complaint-footer,
+html[data-theme="dark"] .admin-page .dashboard-message,
+html[data-theme="dark"] .admin-page .empty-state p,
+html[data-theme="dark"] .admin-page .dashboard-error p,
+html[data-theme="dark"] .admin-page .address-box span,
+html[data-theme="dark"] .admin-page .address-box p,
+html[data-theme="dark"] .admin-page .assignment-section h4,
+html[data-theme="dark"] .admin-page .assignment-help,
+html[data-theme="dark"] .admin-page .manual-assignment-details summary {
+  color: var(--text-secondary, #b0c4b9) !important;
+}
+
+html[data-theme="dark"] .admin-page .address-box,
+html[data-theme="dark"] .admin-page .assignment-section {
+  background: var(--surface-secondary, #222e28) !important;
+  border-color: var(--border, #304239) !important;
+  color: var(--text, #edf7f1) !important;
+}
+
+html[data-theme="dark"] .admin-page .complaint-card-header,
+html[data-theme="dark"] .admin-page .manual-assignment-details {
+  border-color: var(--border, #304239) !important;
+}
+
+html[data-theme="dark"] .admin-page .assignment-form input,
+html[data-theme="dark"] .admin-page .complaint-search-input,
+html[data-theme="dark"] .admin-page .status-filter-select,
+html[data-theme="dark"] .admin-page .status-select {
+  background: var(--surface, #19231f) !important;
+  color: var(--text, #edf7f1) !important;
+  border-color: var(--border, #304239) !important;
+}
+
+html[data-theme="dark"] .admin-page .assignment-form input::placeholder,
+html[data-theme="dark"] .admin-page .complaint-search-input::placeholder {
+  color: var(--text-muted, #879b90) !important;
+}
+
+html[data-theme="dark"] .admin-page .admin-theme-button,
+html[data-theme="dark"] .admin-page .admin-back-button {
+  background: var(--surface-secondary, #222e28) !important;
+  color: var(--text, #edf7f1) !important;
+  border-color: var(--border, #304239) !important;
+}
+
+html[data-theme="dark"] .admin-page .stat-icon {
+  background: var(--surface-secondary, #222e28);
+}
+
+@media (max-width: 700px) {
+  .admin-page .admin-header {
+    flex-wrap: wrap;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .admin-page .admin-header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+

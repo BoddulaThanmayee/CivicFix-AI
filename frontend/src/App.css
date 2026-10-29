@@ -754,3 +754,102 @@ h1 span {
     height: 47px;
   }
 }
+
+
+/* =========================================================
+   CIVICFIX AI — THEME CONTRAST FIX
+   Theme is controlled by html[data-theme="light|dark"] in App.jsx.
+   Keep component-specific colors aligned with the active theme.
+========================================================= */
+:root[data-theme="light"] {
+  --app-page-bg: #f5f8f7;
+  --app-card-bg: #ffffff;
+  --app-text: #18332a;
+  --app-text-secondary: #405a50;
+  --app-border: #dce9e3;
+}
+:root[data-theme="dark"] {
+  --app-page-bg: #101916;
+  --app-card-bg: #19231f;
+  --app-text: #edf7f1;
+  --app-text-secondary: #b9ccc2;
+  --app-border: #304239;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app,
+html[data-theme="dark"] main,
+html[data-theme="dark"] section {
+  background-color: var(--app-page-bg);
+  color: var(--app-text);
+}
+html[data-theme="dark"] .navbar,
+html[data-theme="dark"] .features,
+html[data-theme="dark"] .visual-card,
+html[data-theme="dark"] .option-card,
+html[data-theme="dark"] .feature {
+  background-color: var(--app-card-bg);
+  color: var(--app-text);
+  border-color: var(--app-border);
+}
+html[data-theme="dark"] .logo,
+html[data-theme="dark"] .welcome-user,
+html[data-theme="dark"] .visual-card h3,
+html[data-theme="dark"] .feature h3,
+html[data-theme="dark"] .option-card strong,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] label,
+html[data-theme="dark"] strong {
+  color: var(--app-text);
+}
+html[data-theme="dark"] .tagline,
+html[data-theme="dark"] .description,
+html[data-theme="dark"] .visual-card p,
+html[data-theme="dark"] .feature p,
+html[data-theme="dark"] .option-card small,
+html[data-theme="dark"] .location {
+  color: var(--app-text-secondary);
+}
+html[data-theme="dark"] .admin-nav-button,
+html[data-theme="dark"] .logout-button {
+  background-color: #25352e;
+  color: #f3faf6;
+  border: 1px solid #40574b;
+}
+html[data-theme="dark"] .admin-nav-button:hover,
+html[data-theme="dark"] .logout-button:hover {
+  background-color: #30483d;
+  color: #ffffff;
+}
+html[data-theme="dark"] .option-card:hover {
+  border-color: #52d9ad;
+}
+html[data-theme="dark"] .scan-circle {
+  background-color: #25372f;
+}
+html[data-theme="dark"] .status {
+  background-color: #183d34;
+  color: #7be5bd;
+}
+
+/* Do not let the reporting page's common headings/paragraphs inherit
+   dark green text on a dark background. Specific CSS can still override
+   these rules when it intentionally styles a component. */
+html[data-theme="dark"] .app h1,
+html[data-theme="dark"] .app h2,
+html[data-theme="dark"] .app h3,
+html[data-theme="dark"] .app h4,
+html[data-theme="dark"] .app h5,
+html[data-theme="dark"] .app h6 {
+  color: #edf7f1;
+}
+html[data-theme="dark"] .app p,
+html[data-theme="dark"] .app .subtitle,
+html[data-theme="dark"] .app .description {
+  color: #b9ccc2;
+}

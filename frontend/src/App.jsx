@@ -5,9 +5,10 @@ import ReportIssue from "./ReportIssue";
 import AdminDashboard from "./AdminDashboard";
 import UserDashboard from "./UserDashboard";
 import Notifications from "./Notifications";
+import OfficerDashboard from "./OfficerDashboard";
+
 const API_BASE_URL = "http://127.0.0.1:8000";
 const USER_STORAGE_KEY = "civicfix_user";
-
 
 // =========================================================
 // AUTH PAGE
@@ -136,7 +137,35 @@ function AuthPage({ onLogin }) {
 
 
       // =====================================================
-      // LOGIN
+      // OFFICER LOGIN
+      // =====================================================
+
+      if (mode === "officer") {
+        const response = await fetch(
+          `${API_BASE_URL}/officer-login`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name: email.trim(),
+              password,
+            }),
+          }
+        );
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          setError(data.message || "Officer login failed.");
+          setLoading(false);
+          return;
+        }
+        const officerUser = data.officer;
+        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(officerUser));
+        onLogin(officerUser);
+        return;
+      }
+
+      // =====================================================
+      // CITIZEN LOGIN
       // =====================================================
 
       const response = await fetch(
@@ -232,18 +261,22 @@ function AuthPage({ onLogin }) {
 
           <h1>
 
-            {mode === "login"
-              ? "Welcome back"
-              : "Create your account"}
+            {mode === "register"
+              ? "Create your account"
+              : mode === "officer"
+                ? "Officer Login"
+                : "Welcome back"}
 
           </h1>
 
 
           <p>
 
-            {mode === "login"
-              ? "Login to report civic issues with AI."
-              : "Register once to start reporting civic issues."}
+            {mode === "register"
+              ? "Register once to start reporting civic issues."
+              : mode === "officer"
+                ? "Sign in to manage your assigned complaints."
+                : "Login to report civic issues with AI."}
 
           </p>
 
@@ -300,16 +333,16 @@ function AuthPage({ onLogin }) {
 
           <label>
 
-            Email
+            {mode === "officer" ? "Officer Name" : "Email"}
 
             <input
-              type="email"
-              placeholder="Enter your email"
+              type={mode === "officer" ? "text" : "email"}
+              placeholder={mode === "officer" ? "Enter your officer name" : "Enter your email"}
               value={email}
               onChange={(event) =>
                 setEmail(event.target.value)
               }
-              autoComplete="email"
+              autoComplete={mode === "officer" ? "username" : "email"}
               required
             />
 
@@ -364,9 +397,11 @@ function AuthPage({ onLogin }) {
 
             {loading
               ? "Please wait..."
-              : mode === "login"
-                ? "Login"
-                : "Create Account"}
+              : mode === "register"
+                ? "Create Account"
+                : mode === "officer"
+                  ? "Officer Login"
+                  : "Login"}
 
           </button>
 
@@ -394,26 +429,33 @@ function AuthPage({ onLogin }) {
                 Create an account
               </button>
 
+              <button
+                type="button"
+                onClick={() => switchMode("officer")}
+              >
+                Officer Login
+              </button>
+
+            </>
+
+          ) : mode === "register" ? (
+
+            <>
+
+              <span>Already have an account?</span>
+              <button type="button" onClick={() => switchMode("login")}>
+                Login
+              </button>
+
             </>
 
           ) : (
 
             <>
-
-              <span>
-                Already have an account?
-              </span>
-
-
-              <button
-                type="button"
-                onClick={() =>
-                  switchMode("login")
-                }
-              >
-                Login
+              <span>Are you a citizen?</span>
+              <button type="button" onClick={() => switchMode("login")}>
+                Citizen Login
               </button>
-
             </>
 
           )}
@@ -441,6 +483,29 @@ function App() {
 
   const [currentUser, setCurrentUser] =
     useState(null);
+
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("civicfix_theme") || "light";
+    } catch {
+      return "light";
+    }
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("civicfix_theme", theme);
+    } catch (error) {
+      console.warn("Could not save theme preference:", error);
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((previousTheme) =>
+      previousTheme === "light" ? "dark" : "light"
+    );
+  };
 
 
   // =========================================================
@@ -473,20 +538,11 @@ function App() {
           // =================================================
 
           if (parsedUser.role === "admin") {
-
             setCurrentPage("admin");
-
-          }
-
-
-          // =================================================
-          // CITIZEN → CAMERA / REPORTING SCREEN
-          // =================================================
-
-          else {
-
+          } else if (parsedUser.role === "officer") {
+            setCurrentPage("officer");
+          } else {
             setCurrentPage("report");
-
           }
 
 
@@ -531,20 +587,11 @@ function App() {
     // =======================================================
 
     if (user.role === "admin") {
-
       setCurrentPage("admin");
-
-    }
-
-
-    // =======================================================
-    // CITIZEN → CAMERA / REPORTING SCREEN
-    // =======================================================
-
-    else {
-
+    } else if (user.role === "officer") {
+      setCurrentPage("officer");
+    } else {
       setCurrentPage("report");
-
     }
 
   };
@@ -610,6 +657,22 @@ function App() {
       />
     );
   }
+
+
+// =========================================================
+// OFFICER DASHBOARD
+// =========================================================
+
+if (currentPage === "officer") {
+  return (
+    <OfficerDashboard
+      officer={currentUser}
+      onLogout={handleLogout}
+      onToggleTheme={toggleTheme}
+      theme={theme}
+    />
+  );
+}
 
 
 // =========================================================
@@ -685,7 +748,17 @@ if (currentPage === "report") {
           )}
 
 
-                   <button
+          <button
+            className="admin-nav-button"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            {theme === "light" ? "🌙 Dark mode" : "☀️ Light mode"}
+          </button>
+
+          <button
             className="notification-nav-button"
             onClick={() => setCurrentPage("notifications")}
           >
@@ -840,6 +913,16 @@ if (currentPage === "notifications") {
     🛠️ Admin Dashboard
   </button>
 )}
+
+          <button
+            className="admin-nav-button"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            title={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+          >
+            {theme === "light" ? "🌙 Dark mode" : "☀️ Light mode"}
+          </button>
 
           <button
             className="logout-button"
