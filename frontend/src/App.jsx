@@ -7,7 +7,7 @@ import UserDashboard from "./UserDashboard";
 import Notifications from "./Notifications";
 import OfficerDashboard from "./OfficerDashboard";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://civicfix-ai-yovc.onrender.com";
 const USER_STORAGE_KEY = "civicfix_user";
 
 // =========================================================

@@ -1,7 +1,7 @@
 ﻿import { useCallback, useEffect, useState } from "react";
 import "./OfficerDashboard.css";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://civicfix-ai-yovc.onrender.com";
 const STATUSES = ["Assigned", "Under Review", "In Progress", "Resolved"];
 
 function formatDate(value) {
@@ -165,3 +165,4 @@ export default function OfficerDashboard({ officer, onLogout, onToggleTheme, the
     </div>
   );
 }
+

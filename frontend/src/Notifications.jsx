@@ -1,6 +1,6 @@
 ﻿import { useEffect, useState } from "react";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://civicfix-ai-yovc.onrender.com";
 
 function Notifications({ user, onBack }) {
   const [notifications, setNotifications] = useState([]);

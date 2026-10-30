@@ -22,7 +22,7 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
 });
 
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://civicfix-ai-yovc.onrender.com";
 
 function ReportIssue({ onBack, user }) {
   const [image, setImage] = useState(null);
@@ -905,3 +905,4 @@ function ReportIssue({ onBack, user }) {
 }
 
 export default ReportIssue;
+
